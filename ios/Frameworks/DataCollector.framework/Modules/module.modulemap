@@ -1,0 +1,11 @@
+framework module DataCollector {
+  umbrella header "DataCollector.h"
+
+  export *
+  module * { export * }
+}
+
+module DataCollector.Swift {
+    header "DataCollector-Swift.h"
+    requires objc
+}
