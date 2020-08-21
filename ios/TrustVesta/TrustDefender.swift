@@ -31,17 +31,17 @@ class TrustDefender: NSObject {
             TMXOrgID: orgID,
             TMXFingerprintServer: "h.online-metrix.net",
             // (OPTIONAL) If Keychain Access sharing groups are used, specify like this
-            TMXKeychainAccessGroup: "TEAMID.com.threatmetrix",
+            // TMXKeychainAccessGroup: "TEAMID.com.threatmetrix",
             // (OPTIONAL) Register for location service updates
             // Note that this call can prompt the user for permissions. The related call
             // registerLocationServices will only activate location services have already been
             // granted. But in this case, we want the request to happen
-            TMXLocationServices: true,
+            // TMXLocationServices: false,
         ])
     }
     
     
-    func doProfile()-> String {
+    func doProfile(forCallback callback: @escaping RCTResponseSenderBlock) {
         // (OPTIONAL) Retrieve the version of the mobile SDK
         NSLog("Using TrustDefender framework \(profile.version())")
         var res = ""
@@ -52,6 +52,7 @@ class TrustDefender: NSObject {
                 let profileStatus = response[TMXProfileStatus] as? NSNumber,
                 let status = TMXStatusCode(rawValue: profileStatus.intValue) else {
                 res = "THMTrustDefender profile wrong response"
+                callback([res])
                 return
             }
             
@@ -68,7 +69,7 @@ class TrustDefender: NSObject {
             }
             
             res = "Profile completed with: \(statusString) and session ID: \(self.sessionID)"
+            callback([NSNull(), res])
         }
-        return res;
     }
 }

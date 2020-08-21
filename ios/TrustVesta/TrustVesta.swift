@@ -34,9 +34,10 @@ class TrustVesta: NSObject, RCTBridgeModule {
     @objc(initTM:withCallback:)
     func initTM(_ options: NSDictionary, withCallback callback:@escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
+            let deviceName = UIDevice.current.name
+            let deviceModel = UIDevice.current.model
             TrustDefender.shared.configure(forDeviceName: deviceName, deviceModel: deviceModel, orgID: options["orgId"] as! String, webSessionID: options["webSessionID"] as! String);
-            let res = TrustDefender.shared.doProfile();
-            callback([res]);
+            TrustDefender.shared.doProfile(forCallback: callback);
         }
         
     }

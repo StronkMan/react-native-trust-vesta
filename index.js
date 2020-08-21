@@ -28,8 +28,8 @@ module.exports = {
     initTM(options = {}) {
         return new Promise(function (resolve, reject) {
             if (Platform.OS === 'ios') {
-                TrustVesta.initTM(options, function (success) {
-                    success ? resolve(true) : reject("Cannot start TM.");
+                TrustVesta.initTM(options, function (err, success) {
+                    success ? resolve(success) : reject(err);
                 });
             } else {
                 TrustVesta.initTM(options, res => resolve(res), error => reject(error));
