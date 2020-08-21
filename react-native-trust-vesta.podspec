@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
-  s.vendored_frameworks = 'ios/Frameworks/DataCollector.framework'
-  s.vendored_frameworks = 'ios/Frameworks/TMXProfiling.framework'
-  s.vendored_frameworks = 'ios/Frameworks/TMXProfilingConnections.framework'
+  # s.vendored_frameworks = 'ios/Frameworks/DataCollector.framework'
+  # s.vendored_frameworks = 'ios/Frameworks/TMXProfiling.framework'
+  # s.vendored_frameworks = 'ios/Frameworks/TMXProfilingConnections.framework'
   s.dependency "React"
   # ...
   # s.dependency "..."
