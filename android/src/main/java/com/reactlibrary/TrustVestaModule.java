@@ -1,5 +1,7 @@
 package com.reactlibrary;
+import android.app.Application;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -9,7 +11,9 @@ import com.facebook.react.bridge.ReadableMap;
 import com.threatmetrix.TrustDefender.TMXConfig;
 import com.threatmetrix.TrustDefender.TMXEndNotifier;
 import com.threatmetrix.TrustDefender.TMXProfiling;
+import com.threatmetrix.TrustDefender.TMXProfilingHandle;
 import com.threatmetrix.TrustDefender.TMXProfilingOptions;
+import com.threatmetrix.TrustDefender.TMXStatusCode;
 import com.vesta.sdk.VestaDataCollector;
 import java.util.ArrayList;
 import java.util.List;
