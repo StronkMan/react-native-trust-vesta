@@ -1,8 +1,12 @@
 package com.reactlibrary;
 import android.app.Application;
 import android.os.Handler;
+import android.provider.Settings;
+import android.util.Log;
 
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -98,12 +102,12 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
     deviceAttributesList.add(android.os.Build.MODEL);
     deviceAttributesList.add(deviceId);
 
-    Logger.e("Device Information", deviceAttributesList.toString());
+    Log.e("Device Information", deviceAttributesList.toString());
 
     // Class for doing profiling process, here we are passing device attribute
     // list, WebSessionId and device current location.
     TMXProfilingOptions profilingOptions = new TMXProfilingOptions();
-    profilingOptions.setSessionID(webSessionId);
+    profilingOptions.setSessionID(options.getString("webSessionID"));
     /*
      * If your app is using Location Apis then just pass the Location object in
      * the below method, else make this method of Config class to true
@@ -120,9 +124,9 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
         if (result != null) {
           TMXStatusCode profilingResult = result.getStatus();
           if (profilingResult == TMXStatusCode.TMX_OK) {
-            Logger.e("Profiling Result", profilingResult.toString() + " " +
+            Log.e("Profiling Result", profilingResult.toString() + " " +
                     result.getStatus().getDesc());
-            Logger.e("SessionId after Profiling", " " + result.getSessionID());
+            Log.e("SessionId after Profiling", " " + result.getSessionID());
             successCallback.invoke(true);
           } else {
             errorCallback.invoke("Profiling Result", profilingResult.toString() + " " +

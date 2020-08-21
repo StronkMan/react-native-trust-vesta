@@ -27,6 +27,7 @@ import {
 const App: () => React$Node = () => {
   const webSessionID = 'example-id';
   const loginID = 'user14';
+  const orgId = 'ff2134';
   useEffect(() => {
     async function init() {
       await TrustVesta.initDataCollector({
@@ -36,6 +37,13 @@ const App: () => React$Node = () => {
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+
+      await TrustVesta.initTM({
+        orgId,
+        loginID,
+      })
+        .then((res) => console.log('TM::', res))
+        .catch((err) => console.log('TM::', err));
     }
     init();
   }, [webSessionID, loginID]);

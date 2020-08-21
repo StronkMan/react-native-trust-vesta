@@ -24,5 +24,16 @@ module.exports = {
                 TrustVesta.sendLocation(location, res => resolve(res), error => reject(error));
             }
         });
+    },
+    initTM(options = {}) {
+        return new Promise(function (resolve, reject) {
+            if (Platform.OS === 'ios') {
+                TrustVesta.initTM(options, function (success) {
+                    success ? resolve(true) : reject("Cannot send location.");
+                });
+            } else {
+                TrustVesta.initTM(options, res => resolve(res), error => reject(error));
+            }
+        });
     }
 }
