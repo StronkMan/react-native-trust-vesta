@@ -1,4 +1,8 @@
 package com.reactlibrary;
+import android.app.Application;
+import android.os.Handler;
+import android.util.Log;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -7,7 +11,6 @@ import com.facebook.react.bridge.ReadableMap;
 import com.vesta.sdk.VestaDataCollector;
 
 
-import java.util.Objects;
 
 public class TrustVestaModule extends ReactContextBaseJavaModule {
 
@@ -28,9 +31,20 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
     public void initializeDataCollectorService(final ReadableMap options, final Callback successCallback,
                                                final Callback errorCallback) {
         try{
-            VestaDataCollector.start(getCurrentActivity().getApplication(), options.getString("webSessionID"), options.getString("loginID"), options.getString("environment").equals("sandbox"));
+            Handler mainHandler = new Handler(this.reactContext.getMainLooper());
+            Runnable startDataCollector = new Runnable() {
+                @Override
+                public void run() {
+                    VestaDataCollector.start( (Application) reactContext.getApplicationContext(),
+                            options.getString("webSessionID"), options.getString("loginID"));
+                }
+            };
+
+            mainHandler.post(startDataCollector);
+
             successCallback.invoke(true);
         }catch(Exception e){
+            e.printStackTrace();
             errorCallback.invoke(e.getMessage());
         }
 

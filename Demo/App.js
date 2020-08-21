@@ -15,7 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import {TrustVesta} from '@fluzclient/react-native-trust-vesta';
+import TrustVesta from '@fluzclient/react-native-trust-vesta';
 import {
   Header,
   LearnMoreLinks,
@@ -28,12 +28,13 @@ const App: () => React$Node = () => {
   useEffect(() => {
     async function init() {
       const webSessionID = '101_2';
-      let res = await TrustVesta.initDataCollector({
+      await TrustVesta.initDataCollector({
         webSessionID,
         loginID: '234-234wef-23424',
         sandboxEnabled: true,
-      });
-      console.log(res);
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
     init();
   }, []);
