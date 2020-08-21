@@ -12,17 +12,13 @@ RCT_EXPORT_METHOD(initializeDataCollectorService
   NSString *loginID = options[@"loginID"];
   NSString *environment = options[@"environment"];
   if ([environment isEqualToString:@"sandbox"]) {
-      [DataCollectorService dc.start(withSessionKey
-                                       : webSessionID, loginID
-                                       : loginID, sandboxEnabled
-                                       : YES) {
-      (success) in if success { callback(@[ @true ]); }
-    }]
+      [DataCollectorService startWithSessionKey: webSessionID
+      loginID:loginID
+      sandboxEnabled: YES)]
   } else {
-      [DataCollectorService dc.start(withSessionKey
-                                       : webSessionID, loginID
-                                       : loginID, sandboxEnabled
-                                       : NO) {
+      [DataCollectorService startWithSessionKey: webSessionID
+      loginID:loginID
+      sandboxEnabled: NO) {
       (success) in if success { callback(@[ @true ]); }
     }]
   }
