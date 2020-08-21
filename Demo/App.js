@@ -25,19 +25,20 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+  const webSessionID = 'example-id';
+  const loginID = 'user14';
   useEffect(() => {
     async function init() {
-      const webSessionID = false;
       await TrustVesta.initDataCollector({
         webSessionID,
-        loginID: '234-234wef-23424',
+        loginID,
         environment: 'sandbox',
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
     init();
-  }, []);
+  }, [webSessionID, loginID]);
   return (
     <>
       <StatusBar barStyle="dark-content" />
