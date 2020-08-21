@@ -728,8 +728,8 @@
     minimist "^1.2.0"
 
 "@fluzclient/react-native-trust-vesta@https://github.com/StronkMan/react-native-trust-vesta.git":
-  version "0.1.4"
-  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#7c444b6aba19b542f14c846c32110e06c78c620a"
+  version "0.1.5"
+  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#4523193afec49936789ef9a9916f1265298ae6ce"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
