@@ -14,7 +14,7 @@ module.exports = {
             }
         });
     },
-    sendLocation(location = { long=null, lat=null }) {
+    sendLocation(location = { long: null, lat: null }) {
         return new Promise(function (resolve, reject) {
             if (Platform.OS === 'ios') {
                 TrustVesta.sendLocation(location, function (success) {

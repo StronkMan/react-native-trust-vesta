@@ -24,11 +24,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const API_USERNAME = 'woBMWMKhMG2g+BStUXhpPA==';
-const API_TOKEN =
-  'wGPyLbYVhyi6NS9I1doJEXzd4BukUtw6anw+SKk2LzL+NvBvD/wt48NWTjItjZXf';
-const URL =
-  'https://vsafesandbox.ecustomersupport.com/GatewayV4Proxy/Service/GetSessionTags';
 const App: () => React$Node = () => {
   useEffect(() => {
     async function init() {
