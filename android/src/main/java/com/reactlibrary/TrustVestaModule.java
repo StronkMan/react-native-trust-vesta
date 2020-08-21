@@ -1,13 +1,21 @@
 package com.reactlibrary;
 import android.app.Application;
 import android.os.Handler;
-import android.util.Log;
+
+import java.util.logging.Logger;
+
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.vesta.sdk.VestaDataCollector;
+import com.threatmetrix.TrustDefender.TMXConfig;
+import com.threatmetrix.TrustDefender.TMXEndNotifier;
+import com.threatmetrix.TrustDefender.TMXProfiling;
+import com.threatmetrix.TrustDefender.TMXProfilingHandle;
+import com.threatmetrix.TrustDefender.TMXProfilingOptions;
+import com.threatmetrix.TrustDefender.TMXStatusCode;
 
 public class TrustVestaModule extends ReactContextBaseJavaModule {
 
@@ -34,8 +42,8 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
       public void run() {
         try {
           VestaDataCollector.start(
-              (Application)reactContext.getApplicationContext(),
-              options.getString("webSessionID"), options.getString("loginID"));
+                  (Application)reactContext.getApplicationContext(),
+                  options.getString("webSessionID"), options.getString("loginID"));
           successCallback.invoke(true);
         } catch (Exception e) {
           e.printStackTrace();
@@ -52,10 +60,76 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
                            final Callback errorCallback) {
     try {
       VestaDataCollector.sendLocationData(location.getDouble("lat"),
-                                          location.getDouble("long"));
+              location.getDouble("long"));
       successCallback.invoke(true);
     } catch (Exception e) {
       errorCallback.invoke(e.getMessage());
     }
+  }
+
+  @ReactMethod
+  public void initTM(final ReadableMap options, final Callback successCallback,
+                     final Callback errorCallback) {
+    String deviceId;
+    /*
+     * Class to get orgId and FPServer url
+     */
+    final TMXConfig config = new TMXConfig();
+    config.setContext(reactContext.getApplicationContext());
+    config.setOrgId(options.getString("orgId"));
+    config.setFPServer("h.online-metrix.net");
+    /*
+     * Set this method to true if you are not using Location APIs in your app.
+     * If you are using Location Apis then just pass the Location object in the
+     * profiling section.
+     */
+    config.setRegisterForLocationServices(true);
+    // Initialization of TrustDefender.
+    TMXProfiling.getInstance().init(config);
+
+    // Getting device id to uniquely identify the device.
+    deviceId = Settings.Secure.getString(reactContext.getContentResolver(),
+            Settings.Secure.ANDROID_ID);
+
+    // setting device attribute in a list.
+    List<String> deviceAttributesList = new ArrayList<>();
+    deviceAttributesList.add(android.os.Build.BRAND);
+    deviceAttributesList.add(android.os.Build.MANUFACTURER);
+    deviceAttributesList.add(android.os.Build.MODEL);
+    deviceAttributesList.add(deviceId);
+
+    Logger.e("Device Information", deviceAttributesList.toString());
+
+    // Class for doing profiling process, here we are passing device attribute
+    // list, WebSessionId and device current location.
+    TMXProfilingOptions profilingOptions = new TMXProfilingOptions();
+    profilingOptions.setSessionID(webSessionId);
+    /*
+     * If your app is using Location Apis then just pass the Location object in
+     * the below method, else make this method of Config class to true
+     * 'config.setRegisterForLocationServices(true)'.
+     */
+    // profilingOptions.setLocation(Location object);
+    profilingOptions.setCustomAttributes(deviceAttributesList);
+
+    // Managing Profiling result.
+
+    TMXProfiling.getInstance().profile(profilingOptions, new TMXEndNotifier() {
+      @Override
+      public void complete(TMXProfilingHandle.Result result) {
+        if (result != null) {
+          TMXStatusCode profilingResult = result.getStatus();
+          if (profilingResult == TMXStatusCode.TMX_OK) {
+            Logger.e("Profiling Result", profilingResult.toString() + " " +
+                    result.getStatus().getDesc());
+            Logger.e("SessionId after Profiling", " " + result.getSessionID());
+            successCallback.invoke(true);
+          } else {
+            errorCallback.invoke("Profiling Result", profilingResult.toString() + " " +
+            result.getStatus().getDesc());
+          }
+        }
+      }
+    });
   }
 }
