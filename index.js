@@ -5,12 +5,16 @@ const { TrustVesta } = NativeModules;
 module.exports = {
     initDataCollector(options = {}) {
         return new Promise(function (resolve, reject) {
-            if (Platform.OS === 'ios') {
-                TrustVesta.initializeDataCollectorService(options, function (success) {
-                    success ? resolve(true) : reject("Cannot init DC.");
-                });
+            if (options?.webSessionID && options?.loginID) {
+                if (Platform.OS === 'ios') {
+                    TrustVesta.initializeDataCollectorService(options, function (success) {
+                        success ? resolve(true) : reject("Cannot init DC.");
+                    });
+                } else {
+                    TrustVesta.initializeDataCollectorService(options, res => resolve(res), error => reject(error));
+                }
             } else {
-                TrustVesta.initializeDataCollectorService(options, res => resolve(res), error => reject(error));
+                reject("initDataCollector:: missing webSessionID or loginID");
             }
         });
     },
@@ -27,12 +31,16 @@ module.exports = {
     },
     initTM(options = {}) {
         return new Promise(function (resolve, reject) {
-            if (Platform.OS === 'ios') {
-                TrustVesta.initTM(options, function (err, success) {
-                    success ? resolve(success) : reject(err);
-                });
+            if (options?.webSessionID && options?.orgId) {
+                if (Platform.OS === 'ios') {
+                    TrustVesta.initTM(options, function (err, success) {
+                        success ? resolve(success) : reject(err);
+                    });
+                } else {
+                    TrustVesta.initTM(options, res => resolve(res), error => reject(error));
+                }
             } else {
-                TrustVesta.initTM(options, res => resolve(res), error => reject(error));
+                reject("initTM:: missing webSessionID or orgId");
             }
         });
     }

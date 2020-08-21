@@ -25,7 +25,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
-  const webSessionID = '101_10';
+  const webSessionID = '101_10111';
   const loginID = 'user14';
   const orgId = 'f33plvkc';
   useEffect(() => {
@@ -37,16 +37,21 @@ const App: () => React$Node = () => {
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+    }
+    init();
+  }, [webSessionID, loginID]);
 
+  useEffect(() => {
+    async function init() {
       await TrustVesta.initTM({
         orgId,
         webSessionID,
       })
-        .then((res) => console.log('TM::', res))
-        .catch((err) => console.log('TM::', err));
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
     init();
-  }, [webSessionID, loginID]);
+  }, [webSessionID, orgId]);
   return (
     <>
       <StatusBar barStyle="dark-content" />
