@@ -10,15 +10,24 @@ import DataCollector
 import Foundation
 
 @objc(TrustVesta)
-class TrustVesta: NSObject {
-    @objc(initializeDataCollectorService:callback:)
-    func initializeDataCollectorService(_ options: NSDictionary, callback:@escaping RCTResponseSenderBlock) {
-        DataCollectorService.default.start(withSessionKey: options["webSessionID"] as! String, loginID: options["loginID"] as! String, sandboxEnabled: true) { success in
-            if success {
-                callback([NSNull(), true]);
-            }else{
-                callback([NSNull(), false]);
+class TrustVesta: NSObject, RCTBridgeModule {
+    static func moduleName() -> String! {
+          return "TrustVesta";
+    }
+    static func requiresMainQueueSetup() -> Bool {
+        return true
+    }
+    @objc(initializeDataCollectorService:withCallback:)
+    func initializeDataCollectorService(_ options: NSDictionary, withCallback callback:@escaping RCTResponseSenderBlock) {
+        DispatchQueue.main.async {
+            DataCollectorService.default.start(withSessionKey: options["webSessionID"] as! String, loginID: options["loginID"] as! String, sandboxEnabled: true) { (done)->() in
+                if done {
+                    callback([true]);
+                }else{
+                    callback([false]);
+                }
             }
         }
+        
     }
 }
