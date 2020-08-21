@@ -1,6 +1,6 @@
 #import "TrustVesta.h"
 #import "DataCollector-Swift.h"
-    @implementation TrustVesta
+@implementation TrustVesta
 
 RCT_EXPORT_MODULE()
 
@@ -10,14 +10,21 @@ RCT_EXPORT_METHOD(initializeDataCollectorService
 
   NSString *webSessionID = options[@"webSessionID"];
   NSString *loginID = options[@"loginID"];
-  bool *sandboxEnabled = options[@"sandbox"];
-  DataCollectorService.default.start(withSessionKey
-                                     : webSessionID, loginID
-                                     : loginID, sandboxEnabled
-                                     : sandboxEnabled) {
-    (success) in if success {
-      callback(@[ @true ]);
-    }
+  NSString *environment = options[@"environment"];
+  if ([environment isEqualToString:@"sandbox"]) {
+      [DataCollectorService dc.start(withSessionKey
+                                       : webSessionID, loginID
+                                       : loginID, sandboxEnabled
+                                       : YES) {
+      (success) in if success { callback(@[ @true ]); }
+    }]
+  } else {
+      [DataCollectorService dc.start(withSessionKey
+                                       : webSessionID, loginID
+                                       : loginID, sandboxEnabled
+                                       : NO) {
+      (success) in if success { callback(@[ @true ]); }
+    }]
   }
-
-  @end
+}
+@end

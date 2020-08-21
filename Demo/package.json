@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fluzclient/react-native-trust-vesta": "/Users/kenneth/Documents/fluz/third-party/react-native-trust-vesta/",
+    "@fluzclient/react-native-trust-vesta": "https://github.com/StronkMan/react-native-trust-vesta.git",
     "react": "16.13.1",
     "react-native": "0.63.2"
   },

@@ -727,8 +727,9 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fluzclient/react-native-trust-vesta@/Users/kenneth/Documents/fluz/third-party/react-native-trust-vesta/":
-  version "0.0.1"
+"@fluzclient/react-native-trust-vesta@https://github.com/StronkMan/react-native-trust-vesta.git":
+  version "0.0.2"
+  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#711281dfd5dba5ef281f6be462654391f5ee843b"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
