@@ -27,22 +27,23 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
   public void initializeDataCollectorService(final ReadableMap options,
                                              final Callback successCallback,
                                              final Callback errorCallback) {
-    try {
-      Handler mainHandler = new Handler(this.reactContext.getMainLooper());
-      Runnable startDataCollector = new Runnable() {
-        @Override
-        public void run() {
+
+    Handler mainHandler = new Handler(this.reactContext.getMainLooper());
+    Runnable startDataCollector = new Runnable() {
+      @Override
+      public void run() {
+        try {
           VestaDataCollector.start(
               (Application)reactContext.getApplicationContext(),
               options.getString("webSessionID"), options.getString("loginID"));
           successCallback.invoke(true);
+        } catch (Exception e) {
+          e.printStackTrace();
+          errorCallback.invoke(e.getMessage());
         }
-      };
-      mainHandler.post(startDataCollector);
-    } catch (Exception e) {
-      e.printStackTrace();
-      errorCallback.invoke(e.getMessage());
-    }
+      }
+    };
+    mainHandler.post(startDataCollector);
   }
 
   @ReactMethod
