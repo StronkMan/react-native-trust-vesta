@@ -12,12 +12,12 @@ import Foundation
 @objc(TrustVesta)
 class TrustVesta: NSObject {
     @objc(initializeDataCollectorService:callback:)
-    func initializeDataCollectorService(_ options: NSDictionary, callback:RCTResponseSenderBlock) {
+    func initializeDataCollectorService(_ options: NSDictionary, callback:@escaping RCTResponseSenderBlock) {
         DataCollectorService.default.start(withSessionKey: options["webSessionID"] as! String, loginID: options["loginID"] as! String, sandboxEnabled: true) { success in
             if success {
-                callback(true);
+                callback([NSNull(), true]);
             }else{
-                callback(false);
+                callback([NSNull(), false]);
             }
         }
     }
