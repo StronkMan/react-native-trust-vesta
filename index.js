@@ -1,5 +1,6 @@
 'use strict';
 import { NativeModules, Platform } from 'react-native';
+import isNumber from 'lodash/isNumber'
 const { TrustVesta } = NativeModules;
 
 module.exports = {
@@ -20,13 +21,18 @@ module.exports = {
     },
     sendLocation(location = { long: null, lat: null }) {
         return new Promise(function (resolve, reject) {
-            if (Platform.OS === 'ios') {
-                TrustVesta.sendLocation(location, function (success) {
-                    success ? resolve(true) : reject("Cannot send location.");
-                });
+            if (isNumber(location?.long) && isNumber(location?.lat)) {
+                if (Platform.OS === 'ios') {
+                    TrustVesta.sendLocation(location, function (err, success) {
+                        success ? resolve(true) : reject("Cannot send location.");
+                    });
+                } else {
+                    TrustVesta.sendLocation(location, res => resolve(res), error => reject(error));
+                }
             } else {
-                TrustVesta.sendLocation(location, res => resolve(res), error => reject(error));
+                reject("sendLocation:: long or lat missing or not type of Number");
             }
+
         });
     },
     initTM(options = {}) {

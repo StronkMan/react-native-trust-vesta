@@ -37,6 +37,10 @@ const App: () => React$Node = () => {
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+
+      await TrustVesta.sendLocation({long: 45, lat: 45})
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
     init();
   }, [webSessionID, loginID]);
