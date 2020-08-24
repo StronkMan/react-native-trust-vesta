@@ -38,7 +38,7 @@ const App: () => React$Node = () => {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
 
-      await TrustVesta.sendLocation({long: 45, lat: 45})
+      await TrustVesta.sendLocation({long: -73.984638, lat: 40.759211})
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
