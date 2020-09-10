@@ -1,4 +1,3 @@
-'use strict';
 import { NativeModules, Platform } from 'react-native';
 import isNumber from 'lodash/isNumber'
 const { TrustVesta } = NativeModules;

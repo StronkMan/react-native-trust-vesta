@@ -73,6 +73,8 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation(name: 'TMXProfiling-6.0-138', ext: 'aar')
+    implementation(name: 'TMXProfilingConnections-6.0-138', ext: 'aar')
     implementation fileTree(dir: "libs", include: ["*.aar"])
     // Dependencies required by the Vesta Data Collector SDK
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha03"
