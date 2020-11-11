@@ -14,6 +14,6 @@ import TrustVesta from 'react-native-trust-vesta';
 
 
 TrustVesta.initDataCollector(options:{webSessionID:string, loginID:string});
-TrustVesta.initTM(options:{webSessionID: string, orgId: string})
+TrustVesta.initTM(options:{webSessionID: string, orgId: string});
 TrustVesta.sendLocation(options:{long: number, lat: number});
 ```
