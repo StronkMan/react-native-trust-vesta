@@ -12,6 +12,8 @@
 ```javascript
 import TrustVesta from 'react-native-trust-vesta';
 
-// TODO: What to do with the module?
-TrustVesta;
+
+TrustVesta.initDataCollector(options:{webSessionID:string, loginID:string});
+TrustVesta.initTM(options:{webSessionID: string, orgId: string})
+TrustVesta.sendLocation(options:{long: number, lat: number});
 ```
