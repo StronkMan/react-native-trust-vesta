@@ -19,10 +19,10 @@
 		55BA248EFB9356D1E24B5149 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C4620E6CCF2D0BE84C294C /* libPods-Demo.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9F5EDC5025BF6AF300D1C088 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		9F5EDE1225BF775A00D1C088 /* TMXProfilingConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; };
-		9F5EDE1325BF775A00D1C088 /* TMXProfilingConnections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9F5EDE1725BF787D00D1C088 /* TMXProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; };
-		9F5EDE1825BF787D00D1C088 /* TMXProfiling.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F5EDF6F25BF81B200D1C088 /* TMXProfiling.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5EDF3725BF7CD400D1C088 /* TMXProfiling.xcframework */; };
+		9F5EDF7025BF81B200D1C088 /* TMXProfiling.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5EDF3725BF7CD400D1C088 /* TMXProfiling.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F5EDF7525BF81B300D1C088 /* TMXProfilingConnections.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5EDF3625BF7CD400D1C088 /* TMXProfilingConnections.xcframework */; };
+		9F5EDF7625BF81B300D1C088 /* TMXProfilingConnections.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5EDF3625BF7CD400D1C088 /* TMXProfilingConnections.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9FA7E60A25BF4DC60089CB31 /* DataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA7E60525BF4CCA0089CB31 /* DataCollector.xcframework */; };
 /* End PBXBuildFile section */
 
@@ -44,14 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9F5EDE1125BF775900D1C088 /* Embed Frameworks */ = {
+		9F5EDF7125BF81B200D1C088 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F5EDE1325BF775A00D1C088 /* TMXProfilingConnections.framework in Embed Frameworks */,
-				9F5EDE1825BF787D00D1C088 /* TMXProfiling.framework in Embed Frameworks */,
+				9F5EDF7625BF81B300D1C088 /* TMXProfilingConnections.xcframework in Embed Frameworks */,
+				9F5EDF7025BF81B200D1C088 /* TMXProfiling.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,9 +76,9 @@
 		60BC732881443179C0A19BC0 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		60EDBA19E8476203A6C6547A /* Pods-Demo-DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-DemoTests.debug.xcconfig"; path = "Target Support Files/Pods-Demo-DemoTests/Pods-Demo-DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F5EDF3625BF7CD400D1C088 /* TMXProfilingConnections.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TMXProfilingConnections.xcframework; path = "../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/TMXProfilingConnections.xcframework"; sourceTree = "<group>"; };
+		9F5EDF3725BF7CD400D1C088 /* TMXProfiling.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TMXProfiling.xcframework; path = "../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/TMXProfiling.xcframework"; sourceTree = "<group>"; };
 		9FA7E60525BF4CCA0089CB31 /* DataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DataCollector.xcframework; path = "../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/DataCollector.xcframework"; sourceTree = "<group>"; };
-		9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMXProfilingConnections.framework; path = "../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/TMXProfilingConnections.framework"; sourceTree = "<group>"; };
-		9FE6F51025BF355200FFA554 /* TMXProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMXProfiling.framework; path = "../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/TMXProfiling.framework"; sourceTree = "<group>"; };
 		B3BE752D4F135C293863768D /* Pods-Demo-DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-DemoTests.release.xcconfig"; path = "Target Support Files/Pods-Demo-DemoTests/Pods-Demo-DemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1CBC15CD39585BA3F82C701 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -99,9 +99,9 @@
 			files = (
 				55BA248EFB9356D1E24B5149 /* libPods-Demo.a in Frameworks */,
 				9F5EDC5025BF6AF300D1C088 /* JavaScriptCore.framework in Frameworks */,
+				9F5EDF7525BF81B300D1C088 /* TMXProfilingConnections.xcframework in Frameworks */,
+				9F5EDF6F25BF81B200D1C088 /* TMXProfiling.xcframework in Frameworks */,
 				9FA7E60A25BF4DC60089CB31 /* DataCollector.xcframework in Frameworks */,
-				9F5EDE1225BF775A00D1C088 /* TMXProfilingConnections.framework in Frameworks */,
-				9F5EDE1725BF787D00D1C088 /* TMXProfiling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,9 +156,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F5EDF3725BF7CD400D1C088 /* TMXProfiling.xcframework */,
+				9F5EDF3625BF7CD400D1C088 /* TMXProfilingConnections.xcframework */,
 				9FA7E60525BF4CCA0089CB31 /* DataCollector.xcframework */,
-				9FE6F51025BF355200FFA554 /* TMXProfiling.framework */,
-				9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				46C4620E6CCF2D0BE84C294C /* libPods-Demo.a */,
 				078BE7A71322FC2ACC0AD735 /* libPods-Demo-DemoTests.a */,
@@ -244,7 +244,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				BC8956193A011CE3B73DBCCE /* [CP] Copy Pods Resources */,
-				9F5EDE1125BF775900D1C088 /* Embed Frameworks */,
+				9F5EDF7125BF81B200D1C088 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -631,6 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FJ33KRUKR8;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -644,7 +645,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.trustvesta.Demo;
 				PRODUCT_NAME = Demo;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -659,6 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FJ33KRUKR8;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -671,7 +673,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.trustvesta.Demo;
 				PRODUCT_NAME = Demo;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
