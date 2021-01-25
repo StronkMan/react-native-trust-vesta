@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FE6F34425BF299000FFA554 /* DataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F34325BF299000FFA554 /* DataCollector.xcframework */; };
 		9FEEE69024EDC1D600486BA7 /* TMXProfilingConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEEE68F24EDC1D600486BA7 /* TMXProfilingConnections.framework */; };
 		9FEEE69224EDC1EC00486BA7 /* TMXProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEEE69124EDC1EC00486BA7 /* TMXProfiling.framework */; };
-		9FEEE69524EDC22400486BA7 /* DataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEEE69424EDC22300486BA7 /* DataCollector.framework */; };
 		9FF2987024EFD76D00C94750 /* TrustVesta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2986F24EFD76D00C94750 /* TrustVesta.swift */; };
 		9FF2989024EFF75500C94750 /* TrustVestaBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2988F24EFF75500C94750 /* TrustVestaBridge.m */; };
 /* End PBXBuildFile section */
@@ -28,9 +28,9 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libTrustVesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTrustVesta.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE6F34325BF299000FFA554 /* DataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DataCollector.xcframework; sourceTree = "<group>"; };
 		9FEEE68F24EDC1D600486BA7 /* TMXProfilingConnections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMXProfilingConnections.framework; sourceTree = "<group>"; };
 		9FEEE69124EDC1EC00486BA7 /* TMXProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMXProfiling.framework; sourceTree = "<group>"; };
-		9FEEE69424EDC22300486BA7 /* DataCollector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DataCollector.framework; sourceTree = "<group>"; };
 		9FF2986E24EFD76C00C94750 /* TrustVesta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrustVesta-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FF2986F24EFD76D00C94750 /* TrustVesta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustVesta.swift; sourceTree = "<group>"; };
 		9FF2988F24EFF75500C94750 /* TrustVestaBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustVestaBridge.m; sourceTree = "<group>"; };
@@ -42,8 +42,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FEEE69024EDC1D600486BA7 /* TMXProfilingConnections.framework in Frameworks */,
+				9FE6F34425BF299000FFA554 /* DataCollector.xcframework in Frameworks */,
 				9FEEE69224EDC1EC00486BA7 /* TMXProfiling.framework in Frameworks */,
-				9FEEE69524EDC22400486BA7 /* DataCollector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 		9FEEE69324EDC1F800486BA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9FEEE69424EDC22300486BA7 /* DataCollector.framework */,
+				9FE6F34325BF299000FFA554 /* DataCollector.xcframework */,
 				9FEEE69124EDC1EC00486BA7 /* TMXProfiling.framework */,
 				9FEEE68F24EDC1D600486BA7 /* TMXProfilingConnections.framework */,
 			);
@@ -202,7 +202,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
@@ -256,7 +259,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
@@ -284,7 +290,11 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TrustVesta;
@@ -312,7 +322,11 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TrustVesta;

@@ -5,7 +5,6 @@ platform :ios, '10.0'
 
 target 'Demo' do
   config = use_native_modules!
-
   use_react_native!(:path => config["reactNativePath"])
 
   target 'DemoTests' do
@@ -20,14 +19,5 @@ target 'Demo' do
   use_flipper!
   post_install do |installer|
     flipper_post_install(installer)
-  end
-end
-
-target 'Demo-tvOS' do
-  # Pods for Demo-tvOS
-
-  target 'Demo-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 end

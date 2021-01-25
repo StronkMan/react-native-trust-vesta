@@ -12,14 +12,14 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/StronkMan/react-native-trust-vesta"
   s.license      = "MIT"
   s.authors      = { "Kenneth Jiang" => "kenneth@fluz.app" }
-  s.platforms    = { :ios => "9.0" }
+  s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/StronkMan/react-native-trust-vesta.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
+  s.vendored_frameworks = 'Frameworks/DataCollector.xcframework', 'Frameworks/TMXProfiling.framework', 'Frameworks/TMXProfilingConnections.framework'
   s.xcconfig = { 
-    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/../../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/"',
-    'VALID_ARCHS' => 'arm64 arm64e'
+    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/../../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/**"',
   }
   s.dependency "React"
 end
