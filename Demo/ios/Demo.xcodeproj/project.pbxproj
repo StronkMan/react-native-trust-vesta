@@ -19,10 +19,10 @@
 		55BA248EFB9356D1E24B5149 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C4620E6CCF2D0BE84C294C /* libPods-Demo.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9F5EDC5025BF6AF300D1C088 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		9F5EDD0925BF6D6F00D1C088 /* TMXProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; };
-		9F5EDD0C25BF6D7000D1C088 /* TMXProfilingConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; };
-		9F5EDD1225BF6DBB00D1C088 /* TMXProfiling.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9F5EDD1325BF6DBF00D1C088 /* TMXProfilingConnections.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F5EDE1225BF775A00D1C088 /* TMXProfilingConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; };
+		9F5EDE1325BF775A00D1C088 /* TMXProfilingConnections.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F50E25BF355200FFA554 /* TMXProfilingConnections.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F5EDE1725BF787D00D1C088 /* TMXProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; };
+		9F5EDE1825BF787D00D1C088 /* TMXProfiling.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE6F51025BF355200FFA554 /* TMXProfiling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9FA7E60A25BF4DC60089CB31 /* DataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA7E60525BF4CCA0089CB31 /* DataCollector.xcframework */; };
 /* End PBXBuildFile section */
 
@@ -44,15 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9F5EDD1125BF6DAC00D1C088 /* CopyFiles */ = {
+		9F5EDE1125BF775900D1C088 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F5EDD1325BF6DBF00D1C088 /* TMXProfilingConnections.framework in CopyFiles */,
-				9F5EDD1225BF6DBB00D1C088 /* TMXProfiling.framework in CopyFiles */,
+				9F5EDE1325BF775A00D1C088 /* TMXProfilingConnections.framework in Embed Frameworks */,
+				9F5EDE1825BF787D00D1C088 /* TMXProfiling.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -99,8 +100,8 @@
 				55BA248EFB9356D1E24B5149 /* libPods-Demo.a in Frameworks */,
 				9F5EDC5025BF6AF300D1C088 /* JavaScriptCore.framework in Frameworks */,
 				9FA7E60A25BF4DC60089CB31 /* DataCollector.xcframework in Frameworks */,
-				9F5EDD0C25BF6D7000D1C088 /* TMXProfilingConnections.framework in Frameworks */,
-				9F5EDD0925BF6D6F00D1C088 /* TMXProfiling.framework in Frameworks */,
+				9F5EDE1225BF775A00D1C088 /* TMXProfilingConnections.framework in Frameworks */,
+				9F5EDE1725BF787D00D1C088 /* TMXProfiling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +244,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				BC8956193A011CE3B73DBCCE /* [CP] Copy Pods Resources */,
-				9F5EDD1125BF6DAC00D1C088 /* CopyFiles */,
+				9F5EDE1125BF775900D1C088 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

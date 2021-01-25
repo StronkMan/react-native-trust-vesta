@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
-  s.vendored_frameworks = 'Frameworks/DataCollector.xcframework', 'Frameworks/TMXProfiling.framework', 'Frameworks/TMXProfilingConnections.framework'
+  s.vendored_frameworks = 'Frameworks/DataCollector.xcframework', 'Frameworks/TMXProfiling.xcframework', 'Frameworks/TMXProfilingConnections.xcframework'
   s.xcconfig = { 
     'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/../../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/**"',
   }
