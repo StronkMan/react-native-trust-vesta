@@ -728,8 +728,8 @@
     minimist "^1.2.0"
 
 "@fluzclient/react-native-trust-vesta@https://github.com/StronkMan/react-native-trust-vesta.git":
-  version "3.2.2"
-  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#e7c99005799fcad6017dc287f9a030b7e0567eec"
+  version "3.3.0"
+  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#7537855ec014ef36f8d0a2faba09b11fc17e0949"
   dependencies:
     lodash "^4.17.20"
 
