@@ -22,7 +22,7 @@ class TrustVesta: NSObject, RCTBridgeModule {
     @objc(initializeDataCollectorService:withCallback:)
     func initializeDataCollectorService(_ options: NSDictionary, withCallback callback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
-            DataCollectorService.default.start(withSessionKey: options["webSessionID"] as! String, loginID: options["loginID"] as! String, sandboxEnabled: true) { (done) -> Void in
+            DataCollectorService.default.start(withSessionKey: options["webSessionID"] as! String, loginID: options["loginID"] as! String, sandboxEnabled: options["sandbox"] as! Bool) { (done) -> Void in
                 if done {
                     callback([true])
                 } else {
@@ -45,7 +45,7 @@ class TrustVesta: NSObject, RCTBridgeModule {
     @objc(sendLocation:withCallback:)
     func sendLocation(_ location: NSDictionary, withCallback callback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
-            DataCollectorService.default.sendLocationData(latitude: location["lat"] as! Double, longitude: location["long"] as! Double){(success) in
+            DataCollectorService.default.sendLocationData(latitude: location["lat"] as! Double, longitude: location["long"] as! Double) { success in
                 if success {
                     callback([NSNull(), true])
                 } else {

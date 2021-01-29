@@ -25,7 +25,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
-  const webSessionID = '101_10111';
+  const webSessionID = '101_2';
   const loginID = 'user14';
   const orgId = 'f33plvkc';
   useEffect(() => {
@@ -33,7 +33,7 @@ const App: () => React$Node = () => {
       await TrustVesta.initDataCollector({
         webSessionID,
         loginID,
-        environment: 'sandbox',
+        sandbox: true,
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));

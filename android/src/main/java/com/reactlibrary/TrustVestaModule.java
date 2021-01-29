@@ -44,7 +44,8 @@ public class TrustVestaModule extends ReactContextBaseJavaModule {
         try {
           VestaDataCollector.start(
               (Application)reactContext.getApplicationContext(),
-              options.getString("webSessionID"), options.getString("loginID"));
+              options.getString("webSessionID"), options.getString("loginID"),
+              options.getBoolean("sandbox"));
           successCallback.invoke(true);
         } catch (Exception e) {
           e.printStackTrace();
