@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'Frameworks/DataCollector.xcframework', 'Frameworks/TMXProfiling.xcframework', 'Frameworks/TMXProfilingConnections.xcframework'
   s.xcconfig = { 
     'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/../../node_modules/@fluzclient/react-native-trust-vesta/ios/Frameworks/**"',
-    'VALID_ARCHS' => 'arm64 arm64e'
+    'VALID_ARCHS' => 'arm64 arm64e',
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
   }
   s.dependency "React"
 end

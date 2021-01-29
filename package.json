@@ -1,7 +1,7 @@
 {
   "name": "@fluzclient/react-native-trust-vesta",
   "title": "React Native Trust Vesta",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "TrustVesta Payment Guarantee",
   "main": "index.js",
   "files": [
