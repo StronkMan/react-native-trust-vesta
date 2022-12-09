@@ -1073,8 +1073,8 @@
     strip-json-comments "^3.1.1"
 
 "@fluzclient/react-native-trust-vesta@https://github.com/StronkMan/react-native-trust-vesta.git":
-  version "3.7.1"
-  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#8c02fd10883706126338cc230cc414cf1e8a3b5a"
+  version "4.0.0"
+  resolved "https://github.com/StronkMan/react-native-trust-vesta.git#33df06cd4afc490a0a139369533f36480717d036"
   dependencies:
     lodash "^4.17.20"
 
