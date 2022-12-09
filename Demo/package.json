@@ -12,7 +12,7 @@
   "dependencies": {
     "@fluzclient/react-native-trust-vesta": "https://github.com/StronkMan/react-native-trust-vesta.git",
     "react": "17.0.2",
-    "react-native": "0.66.4"
+    "react-native": "0.66.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
